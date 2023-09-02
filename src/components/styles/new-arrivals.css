@@ -1,0 +1,18 @@
+/* ================= New .new-arrivals ================== */
+.new-arrivals {
+  padding: 30px 0;
+}
+.new-arrivals h4,
+h6 {
+  font-family: Montserrat;
+}
+.products-container {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.products-grid {
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

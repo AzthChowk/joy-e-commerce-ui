@@ -1,0 +1,45 @@
+.product-details {
+  padding: 10px 0;
+  font-family: Montserrat !important;
+}
+.product-details img {
+  width: 100%;
+}
+
+.product-details-grid-img {
+  text-align: center;
+}
+.product-details-grid-img img {
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.product-details-grid-description {
+  padding: 10px 20px;
+}
+
+.product-details-grid-description-inner {
+  padding: 5px 0;
+  margin: 5px;
+}
+.product-details-grid-description-inner input {
+  width: 50px;
+  height: 40px;
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+}
+.product-details-grid-description-inner button {
+  margin: 10px 10px 10px 0;
+}
+
+/* ================product-description-n-review-n-similar============== */
+.product-description-n-review-n-similar {
+  padding: 10px;
+}
+
+.similar-product {
+  padding: 20px;
+}

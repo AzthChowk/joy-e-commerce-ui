@@ -1,0 +1,286 @@
+import React, { useState } from "react";
+import { Formik } from "formik";
+
+import * as Yup from "yup";
+import "./add-product-form.css";
+import axios from "axios";
+import { Button, Typography } from "@mui/material";
+import { $axios } from "../../../lib/AxiosInstance";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import CustomSnackBar from "../../../components/CustomSnackBar";
+
+const SellerAddProduct = () => {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [idFromToken, setIdFromToken] = useState(
+    localStorage.getItem("userId")
+  );
+  const [cat, setCat] = React.useState("");
+
+  const handleChange = (event) => {
+    setCat(event.target.value);
+  };
+  const category = [
+    "electronics",
+    "clothing",
+    "kitchen",
+    "grocery",
+    "furniture",
+    "cosmetics",
+  ];
+
+  return (
+    <div className="product-add-form">
+      <CustomSnackBar
+        open={isSuccess}
+        status="success"
+        message="Product is successfully added."
+        severity="success"
+      />
+      <Typography
+        variant="h5"
+        sx={{ paddingBottom: "20px", fontWeight: "800" }}
+      >
+        ADD PRODUCT
+      </Typography>
+      <Formik
+        initialValues={{
+          name: "",
+          brand: "",
+          size: "",
+          color: "",
+          regularPrice: "",
+          isOnSale: "",
+          salePrice: "",
+          isFreeShipping: "",
+          quantity: "",
+          inStock: "",
+          category: "",
+          section: "",
+          imageUrl: "",
+        }}
+        validationSchema={Yup.object({
+          name: Yup.string()
+            .max(55, "Must be 55 characters or less")
+            .required("Product name is required."),
+          brand: Yup.string()
+            .max(55, "Must be 55 characters or less")
+            .required("Brand name is required."),
+
+          regularPrice: Yup.number()
+            .integer()
+            .positive("Price must be positive.")
+            .min(1, "Price is required.")
+            .required("Price is required."),
+          isOnSale: Yup.boolean(),
+          salePrice: Yup.number()
+            .integer()
+            .positive("Price must be positive.")
+            .min(1, "Price is required.")
+            .required("Price is required."),
+          quantity: Yup.number()
+            .min(1, "Must be at least 1")
+            .integer()
+            .positive("The quantity must be greater than zero.")
+            .required("Required"),
+          freeShipping: Yup.boolean(),
+          inStock: Yup.boolean().required("Required"),
+          color: Yup.string(),
+          category: Yup.string().required("Category is required."),
+          section: Yup.string().required("Section is required."),
+          imageUrl: Yup.string().required("Image is required."),
+          description: Yup.string().required(),
+        })}
+        onSubmit={async (values) => {
+          console.log(values);
+          try {
+            const response = await $axios.post("/product/add", values);
+            console.log(response);
+            setIsSuccess(true);
+          } catch (error) {
+            console.log(error.message);
+          }
+        }}
+      >
+        {(formik) => (
+          <form onSubmit={formik.handleSubmit}>
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <label>Name</label>
+                <input type="text" {...formik.getFieldProps("name")} />
+                {formik.touched.name && formik.errors.name ? (
+                  <div>{formik.errors.name}</div>
+                ) : null}
+              </div>
+              <div>
+                <FormControl>
+                  <label>Category</label>
+                  <Select
+                    sx={{
+                      width: "340px",
+                      height: "44px",
+                      margin: "10px 0",
+                    }}
+                    onChange={handleChange}
+                    {...formik.getFieldProps("category")}
+                  >
+                    {category.map((item, index) => {
+                      return (
+                        <MenuItem key={index} value={item}>
+                          {item}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              </div>
+              <div>
+                <FormControl>
+                  <label>Section</label>
+                  <Select
+                    sx={{
+                      width: "340px",
+                      height: "44px",
+                      margin: "10px 0",
+                    }}
+                    onChange={handleChange}
+                    {...formik.getFieldProps("category")}
+                  >
+                    {category.map((item, index) => {
+                      return (
+                        <MenuItem key={index} value={item}>
+                          {item}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              </div>
+            </div>
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <label>Brand</label>
+                <input type="text" {...formik.getFieldProps("company")} />
+                {formik.touched.company && formik.errors.company ? (
+                  <div>{formik.errors.company}</div>
+                ) : null}
+              </div>
+              <div className="product-form-input-area">
+                <label>Size</label>
+                <input type="number" {...formik.getFieldProps("price")} />
+                {formik.touched.price && formik.errors.price ? (
+                  <div>{formik.errors.price}</div>
+                ) : null}
+              </div>
+              <div className="product-form-input-area">
+                <label>Color</label>
+                <input type="number" {...formik.getFieldProps("price")} />
+                {formik.touched.price && formik.errors.price ? (
+                  <div>{formik.errors.price}</div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <div>
+                  <label>Is in Stock</label>
+                  <input type="text" {...formik.getFieldProps("color")} />
+                  {formik.touched.color && formik.errors.color ? (
+                    <div>{formik.errors.color}</div>
+                  ) : null}
+                </div>
+                <div></div>
+              </div>
+              <div className="product-form-input-area">
+                <label>Quantity</label>
+                <input type="number" {...formik.getFieldProps("quantity")} />
+                {formik.touched.quantity && formik.errors.quantity ? (
+                  <div>{formik.errors.quantity}</div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <label>Regular Price</label>
+                <input type="number" {...formik.getFieldProps("inStock")} />
+                {formik.touched.regularPrice && formik.errors.regularPrice ? (
+                  <div>{formik.errors.regularPrice}</div>
+                ) : null}
+              </div>
+              <div className="product-form-input-area">
+                <label>Is on Sale</label>
+                <input type="boolean" {...formik.getFieldProps("inStock")} />
+                {formik.touched.inStock && formik.errors.inStock ? (
+                  <div>{formik.errors.inStock}</div>
+                ) : null}
+              </div>
+              <div className="product-form-input-area">
+                <label>Sale Price</label>
+                <input type="number" {...formik.getFieldProps("inStock")} />
+                {formik.touched.inStock && formik.errors.inStock ? (
+                  <div>{formik.errors.inStock}</div>
+                ) : null}
+              </div>
+            </div>
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <label>Image</label>
+                <input type="text" {...formik.getFieldProps("inStock")} />
+                {formik.touched.inStock && formik.errors.inStock ? (
+                  <div>{formik.errors.inStock}</div>
+                ) : null}
+              </div>
+              <div className="product-form-input-area">
+                <label>Description</label>
+                <textarea
+                  name="description"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  {...formik.getFieldProps("inStock")}
+                />
+                {formik.touched.inStock && formik.errors.inStock ? (
+                  <div>{formik.errors.inStock}</div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="product-add-form-fields">
+              <div className="product-form-input-area">
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="Free Shipping"
+                    {...formik.getFieldProps("freeShipping")}
+                  />
+                  {formik.touched.freeShipping && formik.errors.freeShipping ? (
+                    <div>{formik.errors.freeShipping}</div>
+                  ) : null}
+                </FormGroup>
+              </div>
+              <div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="success"
+                  sx={{ width: "340px" }}
+                >
+                  Add Product
+                </Button>
+              </div>
+            </div>
+          </form>
+        )}
+      </Formik>
+    </div>
+  );
+};
+
+export default SellerAddProduct;

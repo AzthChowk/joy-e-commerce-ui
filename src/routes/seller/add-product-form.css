@@ -1,0 +1,10 @@
+.product-add-form {
+  box-sizing: border-box;
+}
+
+.product-form-input-area {
+  padding: 7px 0;
+}
+.product-form-input-area input {
+  padding: 7px 10px;
+}

@@ -1,0 +1,56 @@
+.login-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: auto; */
+  border: 1px solid rgba(83, 0, 0, 0.5);
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-sizing: border-box;
+}
+.login-card h4 {
+  font-weight: 400;
+}
+
+.login-card input[type="email"] {
+  padding: 0.65rem 0.5rem;
+  font-size: 1rem;
+  border: 2px solid var(--gray-200);
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.login-card input[type="password"] {
+  padding: 0.65rem 0.5rem;
+  font-size: 1rem;
+  border: 2px solid var(--gray-200);
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  width: 340px;
+}
+.login-card button {
+  width: 100%;
+  margin: 15px 0;
+  background-color: rgb(0, 170, 0);
+  color: white;
+  border: none;
+}
+.login-card button:hover {
+  background-color: rgb(0, 134, 0);
+}
