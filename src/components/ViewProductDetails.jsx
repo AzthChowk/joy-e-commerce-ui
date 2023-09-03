@@ -14,6 +14,7 @@ import * as Yup from "yup";
 import { useParams } from "react-router-dom";
 import { $axios } from "../../lib/AxiosInstance";
 import "./styles/view-product-details.css";
+import ProductReviews from "./ProductReviews";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -149,7 +150,7 @@ const ViewProductDetails = () => {
               ) : (
                 <>
                   <Typography
-                    variant="h6"
+                    variant="h4"
                     sx={{ fontWeight: 600, fontFamily: "Montserrat" }}
                   >
                     {" "}
@@ -220,7 +221,7 @@ const ViewProductDetails = () => {
             <Grid className="product-details-grid-description-inner">
               {inStock === true ? (
                 <Typography sx={{ fontFamily: "Montserrat" }}>
-                  In Stock : Yes
+                  In Stock : Yes [ {quantity} items left.]
                 </Typography>
               ) : (
                 <Typography sx={{ fontFamily: "Montserrat" }}>
@@ -279,45 +280,17 @@ const ViewProductDetails = () => {
                   />
                 </Tabs>
               </Box>
+              {/* ========Product Description========== */}
               <CustomTabPanel value={value} index={0}>
                 <Typography sx={{ fontFamily: "Montserrat" }}>
                   {product.description}
                 </Typography>
               </CustomTabPanel>
+
+              {/* ===========Product Reviews ============== */}
               <CustomTabPanel value={value} index={1}>
                 <Box>
-                  <Typography variant="h6" sx={{ fontFamily: "Montserrat" }}>
-                    REVIEWER NAME
-                  </Typography>
-                  <Typography>Date : 24/12/2023</Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "Montserrat",
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rerum maxime totam dolorem doloremque ab nam quis?
-                    Assumenda, hic laudantium sit necessitatibus dignissimos
-                    exercitationem fugiat provident ullam beatae? Atque, nam
-                    iste!
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="h6" sx={{ fontFamily: "Montserrat" }}>
-                    REVIEWER NAME
-                  </Typography>
-                  <Typography>Date : 24/12/2023</Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "Montserrat",
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Rerum maxime totam dolorem doloremque ab nam quis?
-                    Assumenda, hic laudantium sit necessitatibus dignissimos
-                    exercitationem fugiat provident ullam beatae? Atque, nam
-                    iste!
-                  </Typography>
+                  <ProductReviews id={product._id} />
                 </Box>
               </CustomTabPanel>
             </Box>

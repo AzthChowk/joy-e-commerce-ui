@@ -29,12 +29,12 @@ const ProductCard = (props) => {
         <>
           <Box className="product-image">
             <Grid className="product-image-cts">
-              <img src={imageUrl} alt={productName} />
+              <Link to={`product/details/${_id}`}>
+                <img src={imageUrl} alt={productName} />
+              </Link>
             </Grid>
             <Grid className="product-onsale-display-overlay">
-              <Typography sx={{ fontFamily: "Montserrat", fontSize: 12 }}>
-                SALE
-              </Typography>
+              <Typography sx={{ fontFamily: "Montserrat" }}>SALE</Typography>
             </Grid>
           </Box>
         </>
@@ -42,7 +42,9 @@ const ProductCard = (props) => {
         <>
           <Box className="product-image">
             <Grid className="product-image-cts">
-              <img src={imageUrl} alt={productName} />
+              <Link to={`product/details/${_id}`}>
+                <img src={imageUrl} alt={productName} />
+              </Link>
             </Grid>
           </Box>
         </>
