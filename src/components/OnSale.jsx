@@ -25,7 +25,7 @@ const OnSale = () => {
   return (
     <Box className="container new-arrivals">
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h5" sx={{ fontWeight: 900 }}>
           Sale
         </Typography>
         <Typography variant="h6" sx={{ fontWeight: 400 }}>
@@ -36,7 +36,7 @@ const OnSale = () => {
       <Box className="products-container">
         {products.map((item, index) => {
           return (
-            <Grid className="products-grid">
+            <Grid className="products-grid" key={item._id}>
               <ProductCard {...item} />
             </Grid>
           );

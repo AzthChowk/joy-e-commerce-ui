@@ -1,0 +1,21 @@
+.buyer-dashboard {
+  padding: 10px 0;
+}
+.buyer-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 20px;
+  padding: 10px;
+}
+.buyer-dashboard-grid-menu {
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  height: fit-content;
+  min-width: 220px;
+  /* width: 100%;
+  min-width: 240px; */
+  padding: 20px;
+}
+.buyer-dashboard-grid-cts {
+  /* width: 100%; */
+}

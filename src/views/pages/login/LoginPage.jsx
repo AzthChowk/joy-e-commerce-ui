@@ -25,16 +25,24 @@ const LoginPage = () => {
           try {
             const response = await $axios.post("/user/login", values);
             console.log(response);
+
+            // set the accesstoken in localstorage
             const accessToken = response.data.access_token;
             localStorage.setItem("userAccessToken", accessToken);
+
+            // set the user name in localstorage
             const nameFromToken =
               response.data.user.firstName + " " + response.data.user.lastName;
-            console.log(nameFromToken);
             localStorage.setItem("userName", nameFromToken);
+
+            // set the user logged or not value in localstorage
             localStorage.setItem("isLoggedIn", true);
 
+            // set the user id in localstorage
             localStorage.setItem("userId", response.data.user._id);
-            const checkUserRole = response.data.user.role;
+
+            // set the user role in localstorage
+            localStorage.setItem("userRole", response.data.user.role);
             navigate("/");
             console.log("Login Success.");
           } catch (error) {

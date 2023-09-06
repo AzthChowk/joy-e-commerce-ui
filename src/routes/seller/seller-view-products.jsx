@@ -77,7 +77,7 @@ const SellerViewProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const productList = await $axios.get("/products");
+        const productList = await $axios.post("/products/seller/all");
         console.log(productList.data);
         setProducts(productList.data);
       } catch (error) {

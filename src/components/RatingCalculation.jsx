@@ -1,9 +1,9 @@
 import React from "react";
-import rating1 from "../../public/rating1.png";
-import rating2 from "../../public/rating2.png";
-import rating3 from "../../public/rating3.png";
-import rating4 from "../../public/rating4.png";
-import rating5 from "../../public/rating5.png";
+import rating1 from "/rating1.png";
+import rating2 from "/rating2.png";
+import rating3 from "/rating3.png";
+import rating4 from "/rating4.png";
+import rating5 from "/rating5.png";
 import { Box } from "@mui/material";
 
 const RatingCalculation = ({ r }) => {

@@ -117,20 +117,19 @@ const ViewProductDetails = () => {
           </Grid>
           <Grid item xs={4} className="product-details-grid-description">
             <Grid className="product-details-grid-description-inner">
-              <Typography
-                variant="h5"
-                sx={{ textTransform: "uppercase", fontFamily: "Montserrat" }}
-              >
+              <Typography variant="h5" sx={{ textTransform: "uppercase" }}>
                 {productName}
+              </Typography>
+            </Grid>
+            <Grid className="product-details-grid-description-inner">
+              <Typography sx={{ textTransform: "uppercase" }}>
+                Brand : {brand}
               </Typography>
             </Grid>
             <Grid className="product-details-grid-description-inner">
               {onSale === true ? (
                 <>
-                  <Typography
-                    variant="h4"
-                    sx={{ fontWeight: 600, fontFamily: "Montserrat" }}
-                  >
+                  <Typography variant="h4" sx={{ fontWeight: 600 }}>
                     {" "}
                     Rs. {salePrice}
                   </Typography>
@@ -138,21 +137,17 @@ const ViewProductDetails = () => {
                     variant="h6"
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "Montserrat",
+
                       textDecoration: "line-through",
                       color: "#f00",
                     }}
                   >
-                    {" "}
                     Rs. {regularPrice}
                   </Typography>
                 </>
               ) : (
                 <>
-                  <Typography
-                    variant="h4"
-                    sx={{ fontWeight: 600, fontFamily: "Montserrat" }}
-                  >
+                  <Typography variant="h4" sx={{ fontWeight: 600 }}>
                     {" "}
                     Rs. {regularPrice}
                   </Typography>
@@ -165,15 +160,11 @@ const ViewProductDetails = () => {
                 sx={{
                   textTransform: "uppercase",
                   fontSize: 16,
-                  fontFamily: "Montserrat",
                 }}
               >
                 Available Sizes
               </Typography>
-              <Typography
-                variant="h6"
-                sx={{ textTransform: "uppercase", fontFamily: "Montserrat" }}
-              >
+              <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
                 {size}
               </Typography>
             </Grid>
@@ -184,16 +175,12 @@ const ViewProductDetails = () => {
                 sx={{
                   textTransform: "uppercase",
                   fontSize: 16,
-                  fontFamily: "Montserrat",
                 }}
               >
                 Available Color
               </Typography>
 
-              <Typography
-                variant="h6"
-                sx={{ textTransform: "uppercase", fontFamily: "Montserrat" }}
-              >
+              <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
                 {color}
               </Typography>
             </Grid>
@@ -220,25 +207,19 @@ const ViewProductDetails = () => {
             </Grid>
             <Grid className="product-details-grid-description-inner">
               {inStock === true ? (
-                <Typography sx={{ fontFamily: "Montserrat" }}>
+                <Typography sx={{}}>
                   In Stock : Yes [ {quantity} items left.]
                 </Typography>
               ) : (
-                <Typography sx={{ fontFamily: "Montserrat" }}>
-                  In Stock : No
-                </Typography>
+                <Typography sx={{}}>In Stock : No</Typography>
               )}
             </Grid>
 
             <Grid className="product-details-grid-description-inner">
               {freeShipping === true ? (
-                <Typography sx={{ fontFamily: "Montserrat" }}>
-                  Free Shipping : Yes
-                </Typography>
+                <Typography sx={{}}>Free Shipping : Yes</Typography>
               ) : (
-                <Typography sx={{ fontFamily: "Montserrat" }}>
-                  Free Shipping : No
-                </Typography>
+                <Typography sx={{}}>Free Shipping : No</Typography>
               )}
             </Grid>
             <Grid className="product-details-grid-description-inner">
@@ -247,7 +228,6 @@ const ViewProductDetails = () => {
                 sx={{
                   textTransform: "uppercase",
                   fontWeight: 600,
-                  fontFamily: "Montserrat",
                 }}
               >
                 Easy returns
@@ -268,23 +248,13 @@ const ViewProductDetails = () => {
                   onChange={handleChange}
                   aria-label="basic tabs example"
                 >
-                  <Tab
-                    sx={{ fontFamily: "Montserrat" }}
-                    label="Product description"
-                    {...a11yProps(0)}
-                  />
-                  <Tab
-                    sx={{ fontFamily: "Montserrat" }}
-                    label="Reviews"
-                    {...a11yProps(1)}
-                  />
+                  <Tab sx={{}} label="Product description" {...a11yProps(0)} />
+                  <Tab sx={{}} label="Reviews" {...a11yProps(1)} />
                 </Tabs>
               </Box>
               {/* ========Product Description========== */}
               <CustomTabPanel value={value} index={0}>
-                <Typography sx={{ fontFamily: "Montserrat" }}>
-                  {product.description}
-                </Typography>
+                <Typography sx={{}}>{product.description}</Typography>
               </CustomTabPanel>
 
               {/* ===========Product Reviews ============== */}
@@ -301,7 +271,6 @@ const ViewProductDetails = () => {
               sx={{
                 textTransform: "uppercase",
                 fontWeight: 600,
-                fontFamily: "Montserrat",
               }}
             >
               You make also like this
@@ -311,15 +280,9 @@ const ViewProductDetails = () => {
                 src="https://www.gluestore.com.au/cdn/shop/products/20211220-IMG_7076_1600x.jpg?v=1684720866"
                 alt=""
               />
-              <Typography sx={{ fontFamily: "Montserrat" }}>
-                The Northface Winter Jacket
-              </Typography>
-              <Typography sx={{ fontFamily: "Montserrat", fontWeight: 600 }}>
-                Rs 4500.00
-              </Typography>
-              <Typography sx={{ fontFamily: "Montserrat" }}>
-                Rating - 4.5/5
-              </Typography>
+              <Typography sx={{}}>The North face Winter Jacket</Typography>
+              <Typography sx={{ fontWeight: 600 }}>Rs 4500.00</Typography>
+              <Typography sx={{}}>Rating - 4.5/5</Typography>
               <Button>View details</Button>
             </Grid>
           </Grid>

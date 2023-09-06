@@ -2,27 +2,25 @@
   padding: 0;
 }
 .top-category h2 {
-  font-weight: 200;
-  font-family: Montserrat;
+  font-weight: 300;
   text-transform: uppercase;
   font-size: 30pt;
 }
 .top-category-accessories h2 {
-  font-weight: 200;
-  font-family: Montserrat;
+  font-weight: 300;
   color: var(--secondary);
   font-size: 30pt;
 }
 .top-category-mens {
-  background-image: url("https://img.freepik.com/free-photo/retro-man-dressed-shirt-lies-floor-posing_171337-9906.jpg?w=1380&t=st=1693588131~exp=1693588731~hmac=e78040ab221cdb5e7955bfd4ec11245ae68378639770fe62c9f3e39221fe3494");
+  background-image: url("https://images.pexels.com/photos/3307862/pexels-photo-3307862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   height: 300px;
 }
 .top-category-women {
-  background-image: url("https://img.freepik.com/free-photo/perky-girl-stylish-glasses-stares-amazement-walking-pink-wall-brunette-culottes-orange-blouse-posing-with-red-handbag_197531-14254.jpg?w=1380&t=st=1693588250~exp=1693588850~hmac=e1bd4a72885a6d74f112daf4d6d2bc43198e23a698a41dc47af4dd0d9a36356e");
+  background-image: url("https://images.pexels.com/photos/994234/pexels-photo-994234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   height: 300px;
 }
 .top-category-accessories {
-  background-image: url("https://img.freepik.com/free-photo/new-smartwatch-balancing-with-hand_23-2150296477.jpg?w=826&t=st=1693588518~exp=1693589118~hmac=c4e3784ce51bab9bbd1140c6d2a296c1bec63d536623884ff4ef112939a8d77d");
+  background-image: url("https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   height: 600px;
 }
 .top-category-accessories,

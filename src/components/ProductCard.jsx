@@ -34,7 +34,7 @@ const ProductCard = (props) => {
               </Link>
             </Grid>
             <Grid className="product-onsale-display-overlay">
-              <Typography sx={{ fontFamily: "Montserrat" }}>SALE</Typography>
+              <Typography sx={{ fontSize: 12 }}>SALE</Typography>
             </Grid>
           </Box>
         </>
@@ -52,14 +52,11 @@ const ProductCard = (props) => {
       <Grid className="product-name-n-cat">
         <Typography
           variant="h6"
-          sx={{ fontWeight: 600, fontSize: 16, fontFamily: "Montserrat" }}
+          sx={{ fontWeight: 700, fontSize: 16, textTransform: "capitalize" }}
         >
           {productName}
         </Typography>
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: 400, fontSize: 14, fontFamily: "Montserrat" }}
-        >
+        <Typography variant="h6" sx={{ fontWeight: 300, fontSize: 14 }}>
           {brand}
         </Typography>
       </Grid>
@@ -74,21 +71,21 @@ const ProductCard = (props) => {
             <>
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 600, fontFamily: "Montserrat" }}
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "16px",
+                }}
               >
-                {" "}
                 Rs. {salePrice}
               </Typography>
               <Typography
                 sx={{
-                  fontWeight: 600,
-                  fontFamily: "Montserrat",
+                  fontWeight: 700,
                   textDecoration: "line-through",
                   color: "#f00",
                   fontSize: "12px",
                 }}
               >
-                {" "}
                 Rs. {regularPrice}
               </Typography>
             </>
@@ -96,9 +93,11 @@ const ProductCard = (props) => {
             <>
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 600, fontFamily: "Montserrat" }}
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "16px",
+                }}
               >
-                {" "}
                 Rs. {regularPrice}
               </Typography>
             </>
@@ -108,9 +107,8 @@ const ProductCard = (props) => {
           <Button
             className="general-btn"
             sx={{
-              fontWeight: 600,
+              fontWeight: 700,
               fontSize: 10,
-              fontFamily: "Montserrat",
               backgroundColor: "#003d4a",
               color: "#e2bc89",
             }}
